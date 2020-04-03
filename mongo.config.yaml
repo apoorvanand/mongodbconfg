@@ -1,0 +1,19 @@
+storage:
+    dbPath: "/data/db"
+    journal:
+        enabled: true
+systemLog:
+    destination: file
+    path: "/var/log/mongodb.log"
+    logAppend: true
+    timeStampFormat: iso8601-utc
+processManagement:
+    fork: true
+net:
+    bindIp: 192.0.2.3
+    port: 27019
+security:
+    keyFile: "/data/key/config.key"
+    authorization: "enabled"
+sharding:
+    clusterRole: "configsvr"
