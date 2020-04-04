@@ -1,8 +1,13 @@
-## MongoDB Service
+## MongoDB Windows Service
 ``` 
 sc.exe create MongoDB binPath= "\"C:\Program Files\MongoDB\Server\3.6\bin\mongod.exe\" --service --config=\"C:\Program Files\MongoDB\Server\3.6\mongod.cfg\"" DisplayName= "MongoDB" start= auto
 ```
-
+## Stop Mongodb Service
+```net stop MongoDB ```
+## Delete Mongodb Service
+```
+sc.exe delete MongoDB
+```
 ## MongoDB Backup
 ```
 set "ts=%date:/=-%%time::=-%"
