@@ -1,5 +1,7 @@
 ## MongoDB Service
+``` 
 sc.exe create MongoDB binPath= "\"C:\Program Files\MongoDB\Server\3.6\bin\mongod.exe\" --service --config=\"C:\Program Files\MongoDB\Server\3.6\mongod.cfg\"" DisplayName= "MongoDB" start= auto
+```
 
 ## MongoDB Backup
 ```
@@ -11,3 +13,10 @@ echo "DB Backup completed "
  ```  
 ## MongoDB Restore 
 ```mongorestore -h <DB URI> -d <DB NAME> -U <USER> -P <PASS> <input db directory> ```
+
+
+## Import collection
+``` mongorestore -h {DB_URI} -d {DB_NAME} -u <user> -p <password> <input .bson file> ```
+
+## Export collection
+``` mongodump -h {DB_URI} -d {DB_NAME} -c <collection> -u <user> -p <password> -o <output directory> ```
