@@ -1,0 +1,24 @@
+helm
+
+
+"neotys" has been added to your repositories
+[vagrant@localhost helm]$ helm install my-release neotys/nlweb-dynamic-infrastructure-user
+NAME: my-release
+LAST DEPLOYED: Sun May  3 16:36:25 2020
+NAMESPACE: default
+STATUS: deployed
+REVISION: 1
+TEST SUITE: None
+NOTES:
+1. Get the Kubernetes master URL by running this command:
+kubectl cluster-info | grep 'Kubernetes master'
+
+2. Kubernetes namespace is:
+my-release
+
+3. Get the API token to use by running this command:
+kubectl get secret $(kubectl get serviceaccounts my-release-sa -o jsonpath='{.secrets[].name}' -n my-release) -o jsonpath='{.data.token}' -n my-release | base64 --decode
+[vagrant@localhost helm]$ kubectl cluster-info | grep 'Kubernetes master'
+Kubernetes master is running at https://10.0.2.15:6443
+[vagrant@localhost helm]$ kubectl get secret $(kubectl get serviceaccounts my-release-sa -o jsonpath='{.secrets[].name}' -n my-release) -o jsonpath='{.data.token}' -n my-release | base64 --decode
+eyJhbGciOiJSUzI1NiIsImtpZCI6InU1cy1iLVBVWDB3UF9qWEZmcHpUMjUzd0FkbXBtLXgxeS1meWRBa0JNRW8ifQ.eyJpc3MiOiJrdWJlcm5ldGVzL3NlcnZpY2VhY2NvdW50Iiwia3ViZXJuZXRlcy5pby9zZXJ2aWNlYWNjb3VudC9uYW1lc3BhY2UiOiJteS1yZWxlYXNlIiwia3ViZXJuZXRlcy5pby9zZXJ2aWNlYWNjb3VudC9zZWNyZXQubmFtZSI6Im15LXJlbGVhc2Utc2EtdG9rZW4tNm1wdnEiLCJrdWJlcm5ldGVzLmlvL3NlcnZpY2VhY2NvdW50L3NlcnZpY2UtYWNjb3VudC5uYW1lIjoibXktcmVsZWFzZS1zYSIsImt1YmVybmV0ZXMuaW8vc2VydmljZWFjY291bnQvc2VydmljZS1hY2NvdW50LnVpZCI6Ijc2NTNmYjc2LWQ2NTItNDk1MC04ODU3LWQxZjBkOTI0ZmEwYyIsInN1YiI6InN5c3RlbTpzZXJ2aWNlYWNjb3VudDpteS1yZWxlYXNlOm15LXJlbGVhc2Utc2EifQ.KYS6VnEMgkhieKU_3szCzU58TNBp0bHgwuQfvfjpTw4OdjOX4lVOktMbPiuTPXrXcw581ok2gdZEigZKJECU6_ZX9zPXBKjsTPx0sSL6lLm0bOfnjKe05oxvGJqHPiJP66XNN_FeIm9P_qeu6EiKAzoTz-ESK__XoB6nGGbtwZOq96IifNyrukLNfu40lijOPWEv7iBteHLwV-KT_sX_UgFowzMrUogU1oVq0Uen6UWTnI4ApCPNwY90ZU87Ccr3zJJCoy5IXt9xm-hWGmPAiZxroywzTvN7ZpPntmaZGm-Q79eS2e6rirvz8xUr9RHvchn78f6pU_uP6FIMcHA6FA[vagrant@localhost helm]$
